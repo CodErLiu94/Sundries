@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue Life Cycle</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="app"></div>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			template: '<div @click="change">{{test}}</div>',
+			data: {
+				test: 'Hello World'
+			},
+			methods:{
+				change: function(){
+					this.test="Bye"
+				}
+			},
+			beforeCreate: function(){
+				console.log("beforeCreate");
+			},
+			created: function(){
+				console.log("created");
+			},
+			beforeMount: function(){
+				console.log("beforeMouted");
+				console.log(this.$el);
+			},
+			mounted: function(){
+				console.log("mouted");
+				console.log(this.$el);
+			},
+			beforeUpdate: function(){
+				console.log("beforeUpdate")
+			},
+			updated: function(){
+				console.log("updated")
+			},
+			beforeDestroy: function(){
+				console.log("beforeDestroy")
+			},
+			destroyed: function(){
+				console.log("destroyed")
+			}
+		})
+	</script>
+</body>
+</html>
